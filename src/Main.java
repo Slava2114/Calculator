@@ -1,33 +1,38 @@
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
         double result = 0d;
-        double[] values = new double[2];
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter first value");
-        values[0] = scanner.nextDouble();
-        System.out.println("Enter second value");
-        values[1] = scanner.nextDouble();
+        double [] values = readArray();
         System.out.println("Enter operation");
-        int operation = scanner.nextInt();
-        if (operation == 1) {
+        String operation = scan.next();
+        if (operation.equals("+")) {
             result = values[0] + values[1];
-        } else if (operation == 2) {
+        } else if (operation.equals("-")) {
             result = values[0] - values[1];
-        } else if (operation == 3) {
+        } else if (operation.equals("*")) {
             result = values[0] * values[1];
-        } else if (operation == 4) {
+        } else if (operation.equals("/")) {
             result = values[0] / values[1];
-        } else if (operation == 5) {
-            result = values[0] / values[1] * 100;
+        } else if (operation.equals("%")) {
+            result = values[0] % values[1];
         } else {
             System.out.println("Incorrect operation");
         }
+        System.out.println(result);
+    }
 
-        System.out.println("The result is " + result);
+    public static double[] readArray() {
 
 
-
-
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter number of array poka chto 2 ");
+        int length = scanner.nextInt();
+        double[] array = new double[length];
+        for (int i = 0; i < array.length; i++) {
+            System.out.println("Enter values");
+            array[i] = scanner.nextInt();
+        }
+        return array;
     }
 }
